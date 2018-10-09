@@ -13,7 +13,7 @@ def get_args():
         '--charset',
         type=str,
         default='$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,"^`\'. ',
-        nargs='?',
+        nargs=1,
         help='set the charset used in the output'
     )
     parser.add_argument(
@@ -21,7 +21,7 @@ def get_args():
         '--ratio',
         type=float,
         default=2.25,
-        nargs='?',
+        nargs=1,
         help='set image aspect ratio'
     )
     parser.add_argument(
@@ -29,7 +29,7 @@ def get_args():
         '--max-dim',
         type=int,
         default=96,
-        nargs='?',
+        nargs=1,
         help='set the max size of the output'
     )
     parser.add_argument(
