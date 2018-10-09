@@ -16,7 +16,7 @@ pip install pillow
 
 ```
 > python ascii_art.py -h
-usage: ascii_art.py [-h] [-c CHARSET] [-r RATIO] [-m MAX_DIM] IMG
+usage: ascii_art.py [-h] [-c CHARSET] [-r RATIO] [-m MAX_SIZE] IMG
 
 create beautiful ascii arts
 
@@ -29,7 +29,7 @@ optional arguments:
                         set the charset used in the output
   -r RATIO, --ratio RATIO
                         set image aspect ratio
-  -m MAX_DIM, --max-dim MAX_DIM
+  -m MAX_SIZE, --max-size MAX_SIZE
                         set the max size of the output
 ```
 

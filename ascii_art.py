@@ -26,7 +26,7 @@ def get_args():
     )
     parser.add_argument(
         '-m',
-        '--max-dim',
+        '--max-size',
         type=int,
         default=96,
         nargs=1,
@@ -42,14 +42,14 @@ def get_args():
     return parser.parse_args()
 
 
-def get_grayscale_image(infile, max_dim, ratio):
+def get_grayscale_image(infile, max_size, ratio):
     img = Image.open(infile)
-    if img.size[0] > max_dim:
-        t_width = max_dim
-        t_height = int(img.size[1] * max_dim / img.size[0] / ratio)
+    if img.size[0] > max_size:
+        t_width = max_size
+        t_height = int(img.size[1] * max_size / img.size[0] / ratio)
     else:
-        t_height = int(max_dim / ratio)
-        t_width = int(img.size[0] * max_dim / img.size[1])
+        t_height = int(max_size / ratio)
+        t_width = int(img.size[0] * max_size / img.size[1])
     return img.resize((t_width, t_height), Image.LANCZOS).convert('L')
 
 
@@ -66,5 +66,5 @@ def get_ascii_art(img, charset):
 
 if __name__ == '__main__':
     args = get_args()
-    image = get_grayscale_image(args.infile[0], args.max_dim, args.ratio)
+    image = get_grayscale_image(args.infile[0], args.max_size, args.ratio)
     get_ascii_art(image, args.charset)
