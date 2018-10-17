@@ -12,6 +12,8 @@ pip install pillow
 
 ## 使用说明
 
+### 单独使用
+
 使用 `-h` 参数查看使用说明。
 
 ```
@@ -34,3 +36,25 @@ optional arguments:
 ```
 
 默认输出到控制台，也可以使用 `> file` 的形式输出到文件。
+
+### 作为模块导入
+
+可用 api 如下
+
+- grayscale_image(infile, max_size, ratio)
+
+    `infile` 文件路径。
+    `max_size` 长宽最大尺寸（像素）。
+    `ratio` 比例。
+    将彩色图片转换为指定大小和比例的灰度图片。
+
+- ascii_art(img, charset=default_charset)
+  
+    `img` 灰度图片。
+    `charset` 字符集，默认值为 `$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^&#96;'. ` 。
+    将灰度图片转换为字符画矩阵。
+
+- print_art(ascii_art)
+
+    `ascii_art` 字符画矩阵。
+    打印字符画到标准输出。

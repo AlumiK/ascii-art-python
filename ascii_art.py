@@ -2,6 +2,9 @@ import argparse
 
 from PIL import Image
 
+__all__ = ['grayscale_image', 'ascii_art', 'print_art']
+default_charset = '$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,"^`\'. '
+
 
 def get_args():
     parser = argparse.ArgumentParser(
@@ -12,7 +15,7 @@ def get_args():
         '-c',
         '--charset',
         type=str,
-        default=['$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,"^`\'. '],
+        default=[default_charset],
         nargs=1,
         help='set the charset used in the output'
     )
@@ -53,7 +56,7 @@ def grayscale_image(infile, max_size, ratio):
     return img.resize((t_width, t_height), Image.LANCZOS).convert('L')
 
 
-def ascii_art(img, charset):
+def ascii_art(img, charset=default_charset):
     pixels = list(img.getdata())
     step = 256 / len(charset)
     width, height = img.size
@@ -66,12 +69,14 @@ def ascii_art(img, charset):
         ascii_art.append(line)
     return ascii_art
 
-
-if __name__ == '__main__':
-    args = get_args()
-    image = grayscale_image(args.infile[0], args.max_size[0], args.ratio[0])
-    ascii_art = ascii_art(image, args.charset[0])
+def print_art(ascii_art):
     for line in ascii_art:
         for char in line:
             print(char, end='')
         print()
+
+
+if __name__ == '__main__':
+    args = get_args()
+    image = grayscale_image(args.infile[0], args.max_size[0], args.ratio[0])
+    print_art(ascii_art(image, args.charset[0]))
