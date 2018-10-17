@@ -42,7 +42,7 @@ def get_args():
     return parser.parse_args()
 
 
-def get_grayscale_image(infile, max_size, ratio):
+def grayscale_image(infile, max_size, ratio):
     img = Image.open(infile)
     if img.size[0] > max_size:
         t_width = max_size
@@ -53,18 +53,25 @@ def get_grayscale_image(infile, max_size, ratio):
     return img.resize((t_width, t_height), Image.LANCZOS).convert('L')
 
 
-def get_ascii_art(img, charset):
+def ascii_art(img, charset):
     pixels = list(img.getdata())
     step = 256 / len(charset)
     width, height = img.size
+    ascii_art = []
     for y in range(0, height):
+        line = []
         for x in range(0, width):
             index = int(pixels[x + y * width] / step)
-            print(charset[index], end='')
-        print()
+            line.append(charset[index])
+        ascii_art.append(line)
+    return ascii_art
 
 
 if __name__ == '__main__':
     args = get_args()
-    image = get_grayscale_image(args.infile[0], args.max_size[0], args.ratio[0])
-    get_ascii_art(image, args.charset[0])
+    image = grayscale_image(args.infile[0], args.max_size[0], args.ratio[0])
+    ascii_art = ascii_art(image, args.charset[0])
+    for line in ascii_art:
+        for char in line:
+            print(char, end='')
+        print()
