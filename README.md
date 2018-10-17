@@ -39,7 +39,7 @@ optional arguments:
 
 ### 作为模块导入
 
-可用 api 如下
+可用 api 如下。
 
 - grayscale_image(infile, max_size, ratio)
 
@@ -55,12 +55,12 @@ optional arguments:
   
     `img` 灰度图片。
 
-    `charset` 字符集，默认值为 `$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^&#96;'. ` 。
+    `charset` 字符集，默认值为 ``$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. `` 。
 
     将灰度图片转换为字符画矩阵。
 
 - print_art(ascii_art)
 
     `ascii_art` 字符画矩阵。
-    
+
     打印字符画到标准输出。
