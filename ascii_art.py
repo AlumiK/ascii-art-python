@@ -12,7 +12,7 @@ def get_args():
         '-c',
         '--charset',
         type=str,
-        default='$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,"^`\'. ',
+        default=['$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,"^`\'. '],
         nargs=1,
         help='set the charset used in the output'
     )
@@ -20,7 +20,7 @@ def get_args():
         '-r',
         '--ratio',
         type=float,
-        default=2.25,
+        default=[2.25],
         nargs=1,
         help='set image aspect ratio'
     )
@@ -28,7 +28,7 @@ def get_args():
         '-m',
         '--max-size',
         type=int,
-        default=96,
+        default=[96],
         nargs=1,
         help='set the max size of the output'
     )
@@ -66,5 +66,5 @@ def get_ascii_art(img, charset):
 
 if __name__ == '__main__':
     args = get_args()
-    image = get_grayscale_image(args.infile[0], args.max_size, args.ratio)
-    get_ascii_art(image, args.charset)
+    image = get_grayscale_image(args.infile[0], args.max_size[0], args.ratio[0])
+    get_ascii_art(image, args.charset[0])
