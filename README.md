@@ -44,17 +44,23 @@ optional arguments:
 - grayscale_image(infile, max_size, ratio)
 
     `infile` 文件路径。
+
     `max_size` 长宽最大尺寸（像素）。
+
     `ratio` 比例。
+
     将彩色图片转换为指定大小和比例的灰度图片。
 
 - ascii_art(img, charset=default_charset)
   
     `img` 灰度图片。
+
     `charset` 字符集，默认值为 `$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^&#96;'. ` 。
+
     将灰度图片转换为字符画矩阵。
 
 - print_art(ascii_art)
 
     `ascii_art` 字符画矩阵。
+    
     打印字符画到标准输出。
