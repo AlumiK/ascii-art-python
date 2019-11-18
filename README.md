@@ -1,6 +1,6 @@
-# 字符画
+# ASCII 字符画
 
-项目基于 [Python](https://www.python.org/) 语言制作。
+项目基于 [Python](https://www.python.org/) 制作。
 
 ## 前置要求
 
@@ -12,9 +12,9 @@ pip install pillow
 
 ## 使用说明
 
-### 单独使用
+### 直接运行
 
-使用 `-h` 参数查看使用说明。
+使用 `-h|--help` 参数查看使用说明。
 
 ```
 > python ascii_art.py -h
@@ -30,7 +30,7 @@ optional arguments:
   -c CHARSET, --charset CHARSET
                         set the charset used in the output
   -r RATIO, --ratio RATIO
-                        set image aspect ratio
+                        set the aspect ratio of the image
   -m MAX_SIZE, --max-size MAX_SIZE
                         set the max size of the output
 ```
@@ -39,19 +39,23 @@ optional arguments:
 
 ### 作为模块导入
 
-可用 api 如下。
+```python
+import ascii_art
+```
 
-- grayscale_image(infile, max_size, ratio)
+可用接口如下。
 
-    `infile` 文件路径。
+- ascii_art.to_grayscale(infile, max_size, ratio)
+
+    `infile` 输入文件路径。
 
     `max_size` 长宽最大尺寸（像素）。
 
     `ratio` 比例。
 
-    将彩色图片转换为指定大小和比例的灰度图片。
+    将输入图片转换为指定大小和比例的灰度图片。
 
-- ascii_art(img, charset=default_charset)
+- ascii_art.make_art(img, charset=default_charset)
   
     `img` 灰度图片。
 
@@ -59,8 +63,8 @@ optional arguments:
 
     将灰度图片转换为字符画矩阵。
 
-- print_art(ascii_art)
+- ascii_art.print_art(art)
 
-    `ascii_art` 字符画矩阵。
+    `art` 字符画矩阵。
 
     打印字符画到标准输出。
